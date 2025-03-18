@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("org.jetbrains.kotlin.plugin.serialization") version "2.1.0"
+    id("maven-publish")
 }
 
 android {
@@ -45,4 +46,17 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.cio)
     implementation(libs.ktor.serialization.kotlinx.json)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.joshi-kt"
+                artifactId = "chatIt-core"
+                version = "<VERSION>"
+            }
+        }
+    }
 }
