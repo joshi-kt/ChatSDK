@@ -55,7 +55,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.joshi-kt"
                 artifactId = "chatIt-core"
-                version = "0.1-beta"
+                version = "0.1"
             }
         }
     }
